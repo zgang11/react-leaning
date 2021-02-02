@@ -1,13 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import LikeButton from './myTest/state.js'
+import LikeButtonProp from './myTest/props'
+
+class Header extends Component {
+  render(){
+    const word = 'is good'
+    return (
+      <div>
+        <Title/>
+        <h1 className={word}>xjjalaf {word}</h1>
+      </div>
+    )
+  }
+}
+
+class Title extends Component {
+  handleClick(a,b){
+    console.log('click on title')
+    console.log(this,a,b)
+  }
+  render(){
+    return (
+        <div>
+          <div onClick={this.handleClick.bind(this,'hello','fat ass')}>title1</div>,
+          <div>title2</div>,
+          <div>title3</div>
+          <LikeButton/>
+          <LikeButtonProp likeText='喜欢' unLikeText='不喜欢' onClick={()=>{console.log('hit me')}}  wording={{likeText:'like',unLikeText:'no like'}}/>
+          <LikeButtonProp/>
+        </div>
+    )
+  }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Header></Header>,
   document.getElementById('root')
 );
 
