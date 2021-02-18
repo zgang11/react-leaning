@@ -10,7 +10,7 @@ class List extends Component {
           ]
         return (
          <div>
-             {
+             {ß
 
              }
          </div>
